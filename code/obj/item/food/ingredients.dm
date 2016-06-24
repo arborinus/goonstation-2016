@@ -426,3 +426,47 @@
 	heal(var/mob/M)
 		boutput(M, "<span style=\"color:red\">The noodles taste terrible uncooked...</span>")
 		..()
+
+/obj/item/reagent_containers/food/snacks/ingredient/pepperoni
+	name = "pepperoni"
+	desc = "A slice of what you believe could possibly be meat."
+	icon_state = "pepperoni"
+	amount = 1
+	food_color = "#C90E0E"
+	custom_food = 1
+	doants = 0
+	initial_volume = 15
+
+	New()
+		..()
+		spawn(10)
+			if (!reagents.total_volume)
+				reagents.add_reagent("pepperoni", 15)
+
+
+obj/item/reagent_containers/food/snacks/ingredient/pepperoni_log
+	name = "pepperoni log"
+	desc = "It's like a forest of pepperoni was felled just for you."
+	icon_state = "pepperoni_log"
+	custom_food = 1
+	amount = 1
+	food_color = "#C90E0E"
+	doants = 0
+	initial_volume = 50
+
+	New()
+		..()
+		spawn(10)
+			if (!reagents.total_volume)
+				reagents.add_reagent("pepperoni", 50)
+
+
+	attackby(obj/item/W as obj, mob/user as mob)
+		if (istype(W, /obj/item/axe) || istype(W, /obj/item/circular_saw) || istype(W, /obj/item/kitchen/utensil/knife) || istype(W, /obj/item/scalpel) || istype(W, /obj/item/sword) || istype(W,/obj/item/saw) || istype(W,/obj/item/knife_butcher))
+			var/turf/T = get_turf(src)
+			user.visible_message("[user] cuts [src] into slices.", "You cut [src] into slices.")
+			var/makeslices = 6
+			while (makeslices > 0)
+				var/obj/item/reagent_containers/food/snacks/ingredient/pepperoni/P = new(T)
+				makeslices -= 1
+			qdel (src)
