@@ -2175,6 +2175,11 @@ datum
 						playsound(M.loc, "sound/weapons/slap.ogg", 50, 1)
 						M.TakeDamage("head", 1, 0, 0, DAMAGE_BLUNT)
 
+			reaction_turf(var/turf/T, var/volume)
+				src = null
+				if(volume >= 5 && !(locate(/obj/item/reagent_containers/food/snacks/ingredient/pepperoni_log) in T))
+					new /obj/item/reagent_containers/food/snacks/ingredient/pepperoni_log(T)
+
 		fooddrink/juice_lime
 			name = "lime juice"
 			id = "juice_lime"
