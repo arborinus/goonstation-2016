@@ -110,6 +110,7 @@
 			base_name = "cable coil"
 		updateName()
 
+
 /obj/item/cable_coil/cut
 	icon = 'icons/obj/power.dmi'
 	icon_state = "coil2"
@@ -194,6 +195,13 @@
 		take(1, usr.loc)
 		boutput(user, "You cut a piece off the cable coil.")
 		src.updateicon()
+		return
+
+	if (istype(W, /obj/item/raw_material/rock) && src.amount == MAXCOIL)
+		boutput(user, "You weave the cable coil around the rock.")
+		user.put_in_hand_or_drop(new /obj/item/wirenet ())
+		qdel(src)
+		qdel(W)
 		return
 
 	else if (istype(W, /obj/item/cable_coil))
