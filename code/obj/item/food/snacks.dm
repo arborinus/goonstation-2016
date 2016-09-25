@@ -769,7 +769,7 @@
 						M.stunned+= 2
 						return
 					else
-						boutput(M, "<span style=\"color:red\">The stink of the surströmming combines with your inherent body funk to create a stench of BIBLICAL PROPORTIONS!</span>")
+						boutput(M, "<span style=\"color:red\">The stink of the surstrÃ¶mming combines with your inherent body funk to create a stench of BIBLICAL PROPORTIONS!</span>")
 						M.name_suffix("the Stinky")
 						M.UpdateName()
 		..()
@@ -779,9 +779,9 @@
 		..()
 		if (usr.bioHolder.HasEffect("accent_swedish"))
 			if (src.icon_state == "surs_closed")
-				boutput(usr, "Oooh, a can of surströmming! It's been a while since you've seen one of these. It looks like it's ready to eat.")
+				boutput(usr, "Oooh, a can of surstrÃ¶mming! It's been a while since you've seen one of these. It looks like it's ready to eat.")
 			else
-				boutput(usr, "Oooh, a can of surströmming! It's been a while since you've seen one of these. It smells heavenly!")
+				boutput(usr, "Oooh, a can of surstrÃ¶mming! It's been a while since you've seen one of these. It smells heavenly!")
 			return
 		else
 			if (src.icon_state == "surs_closed")
@@ -1033,7 +1033,10 @@
 
 	heal(var/mob/M)
 		..()
-		boutput(M, "It tastes disappointing.")
+		if (M.ckey == "arborinus" )
+			boutput(M, __blue("That tasted amazing!"))
+		else	
+			boutput(M, "It tastes disappointing.")
 		return
 
 //Candy bar variants
