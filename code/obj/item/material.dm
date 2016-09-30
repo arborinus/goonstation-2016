@@ -416,6 +416,17 @@
 		src.material = getCachedMaterial("fibrilith")
 		return ..()
 
+/obj/item/raw_material/synthrubber
+	name = "synthrubber"
+	desc = "A type of synthetic rubber. Conducts electricity poorly."
+	icon_state = "fabric"
+	material_name = "synthrubber"
+	scoopable = 0
+
+	New()
+		src.material = getCachedMaterial("synthrubber")
+		return ..()
+
 /obj/item/raw_material/cotton/
 	name = "cotton wad"
 	desc = "It's a big puffy white thing. Most likely not a cloud though."
@@ -424,6 +435,42 @@
 	New()
 		src.material = getCachedMaterial("cotton")
 		return ..()
+
+/obj/item/raw_material/wood/
+	name = "wooden log"
+	desc = "Years of genetic engineering mean timber always comes in perfectly shaped cylindrical logs."
+	icon = 'icons/obj/hydroponics/hydromisc.dmi'
+	icon_state = "log"
+	burn_point = 450
+	burn_output = 1600
+	burn_possible = 1
+	health = 20
+
+	New()
+		src.material = getCachedMaterial("wood")
+		return ..()
+
+	attackby(obj/item/W as obj, mob/user as mob)
+		if (istype(W, /obj/item/axe) || istype(W, /obj/item/circular_saw) || istype(W, /obj/item/kitchen/utensil/knife) || istype(W, /obj/item/scalpel) || istype(W, /obj/item/sword) || istype(W,/obj/item/saw) || istype(W,/obj/item/knife_butcher))
+			user.visible_message("[user] cuts [src] into planks.", "You cut the [src] into planks.")
+			new /obj/item/plank(user.loc)
+			qdel (src)
+
+/obj/item/raw_material/bamboo/
+	name = "bamboo stalk"
+	desc = "Keep away from Space Pandas."
+	icon = 'icons/obj/hydroponics/hydromisc.dmi'
+	icon_state = "bamboo"
+
+	New()
+		src.material = getCachedMaterial("bamboo")
+		return ..()
+
+	attackby(obj/item/W as obj, mob/user as mob)
+		if (istype(W, /obj/item/axe) || istype(W, /obj/item/circular_saw) || istype(W, /obj/item/kitchen/utensil/knife) || istype(W, /obj/item/scalpel) || istype(W, /obj/item/sword) || istype(W,/obj/item/saw) || istype(W,/obj/item/knife_butcher))
+			user.visible_message("[user] carefully extracts a shoot from [src].", "You carefully cut a shoot from [src].")
+			new /obj/item/reagent_containers/food/snacks/plant/bamboo/(user.loc)
+			qdel (src)
 
 /obj/item/raw_material/ice
 	name = "ice chunk"
