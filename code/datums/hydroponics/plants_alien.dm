@@ -149,7 +149,6 @@
 	starthealth = 50
 	growtime = 300
 	harvtime = 600
-	harvestable = 0
 	endurance = 100
-	simplegrowth = 1
 	vending = 0
+	crop = /obj/item/raw_material/shard/plasmacrystal
