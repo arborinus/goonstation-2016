@@ -352,3 +352,9 @@
 	iconmod = "Cash"
 	crop = /obj/item/spacecash
 	chance = 20
+
+/datum/plantmutation/tree/rubber
+	name = "Rubber Tree"
+	iconmod = "Rubber"
+	crop = /obj/item/raw_material/synthrubber
+	chance = 20
