@@ -452,7 +452,7 @@
 
 	attackby(obj/item/W as obj, mob/user as mob)
 		if (istype(W, /obj/item/axe) || istype(W, /obj/item/circular_saw) || istype(W, /obj/item/kitchen/utensil/knife) || istype(W, /obj/item/scalpel) || istype(W, /obj/item/sword) || istype(W,/obj/item/saw) || istype(W,/obj/item/knife_butcher))
-			user.visible_message("[user] cuts [src] into planks.", "You cut the [src] into planks.")
+			user.visible_message("[user] cuts [src] into a plank.", "You cut the [src] into a plank.")
 			new /obj/item/plank(user.loc)
 			qdel (src)
 
