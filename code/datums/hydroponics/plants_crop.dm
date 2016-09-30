@@ -161,11 +161,26 @@
 	force_seed_on_harvest = 1
 	commuts = list(/datum/plant_gene_strain/immunity_radiation,/datum/plant_gene_strain/metabolism_slow)
 
+/datum/plant/bamboo
+	name = "Bamboo"
+	category = "Miscellaneous"
+	seedcolor = "#FCDA91"
+	crop = /obj/item/raw_material/bamboo/
+	starthealth = 15
+	growtime = 20
+	harvtime = 40
+	cropsize = 5
+	harvests = 1
+	isgrass = 1
+	endurance = 0
+	genome = 10
+	commuts = list(/datum/plant_gene_strain/growth_fast,/datum/plant_gene_strain/health_poor)
+
 /datum/plant/tree // :effort:
 	name = "Tree"
 	category = "Miscellaneous"
 	seedcolor = "#9C5E13"
-	crop = /obj/item/plank
+	crop = /obj/item/raw_material/wood/
 	starthealth = 40
 	growtime = 200
 	harvtime = 260
@@ -175,5 +190,5 @@
 	genome = 20
 	force_seed_on_harvest = 1
 	vending = 1
-	mutations = list(/datum/plantmutation/tree/money)
+	mutations = list(/datum/plantmutation/tree/money, /datum/plantmutation/tree/rubber)
 	commuts = list(/datum/plant_gene_strain/metabolism_fast,/datum/plant_gene_strain/metabolism_slow,/datum/plant_gene_strain/resistance_drought)
