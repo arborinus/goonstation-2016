@@ -847,6 +847,21 @@
 		setProperty(new/datum/material_property/hardness { value = 5 }())
 		setProperty(new/datum/material_property/toughness { value = 65 }())
 		return ..()
+
+/datum/material/organic/wood
+	mat_id = "wood"
+	name = "wood"
+	desc = "If a tree falls in space, does it make a sound?"
+	color = "#A89463"
+	material_flags = MATERIAL_ORGANIC
+
+/datum/material/organic/bamboo
+	mat_id = "bamboo"
+	name = "bamboo"
+	desc = "A fast growing crop with a variety of uses."
+	color = "#FCDA91"
+	material_flags = MATERIAL_ORGANIC
+
 // Fabrics
 
 /datum/material/fabric
