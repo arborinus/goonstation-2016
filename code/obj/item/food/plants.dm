@@ -747,6 +747,13 @@
 	heal_amt = 2
 	food_color = "#FF00FF"
 
+/obj/item/reagent_containers/food/snacks/plant/bamboo/
+	name = "bamboo shoot"
+	desc = "The tender and crunchy edible portion of a bamboo plant."
+	icon_state = "shoot"
+	food_color = "#B7B675"
+	amount = 1
+
 // Weird alien fruit
 
 /obj/item/reagent_containers/food/snacks/plant/purplegoop
