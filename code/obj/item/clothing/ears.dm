@@ -21,3 +21,11 @@
 	icon_state = "earplugs"
 	item_state = "nothing"
 	desc = "Protects you from sonic attacks."
+
+/obj/item/clothing/ears/yetimuffs
+	name = "yeti's earmuffs"
+	icon_state = "yetimuffs"
+	protective_temperature = 1500
+	item_state = "yetimuffs"
+	desc = "Made from free-range yetis fed only with non-GMO skiers."
+	block_hearing = 1
