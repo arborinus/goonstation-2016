@@ -343,3 +343,16 @@ var/list/glove_IDs = new/list() //Global list of all gloves. Identical to Cogwer
 
 			for(var/d in dummies)
 				qdel(d)
+
+/obj/item/clothing/gloves/titanring
+	name = "Titan's Ring"
+	desc = "\"DO NOT TOUCH PROPERTY OF TITAN\" is etched on the inside. Who knows who that is."
+	icon_state = "titanring"
+	item_state = "titanring"
+	hide_prints = 0
+	equipped(var/mob/user, var/slot)
+		var/mob/living/carbon/human/H = user
+		H.bioHolder.AddEffect("hulk")
+	unequipped(var/mob/user, var/slot)
+		var/mob/living/carbon/human/H = user
+		H.bioHolder.RemoveEffect("hulk")
