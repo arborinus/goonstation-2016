@@ -814,3 +814,12 @@
 	icon_state = "gold_zippo"
 	icon_closed = "gold_zippo"
 	icon_open = "gold_zippoon"
+
+/obj/item/zippo/brighter
+	name = "zippo brighter"
+	desc = "A pretty bright lighter."
+
+	New()
+		..()
+		light = new /datum/light/point
+		light.set_brightness(0.8)
