@@ -785,3 +785,15 @@
 	desc = "Traditional Scottish clothing. A bit drafty in here, isn't it?"
 	icon_state = "kilt"
 	item_state = "kilt"
+
+/obj/item/clothing/under/gimmick/frog
+	name = "frog jumpsuit"
+	desc = "This jumpsuit calls to question your sense of belonging."
+	icon_state = "frog"
+	item_state = "frog"
+	equipped(var/mob/user, var/slot)
+		var/mob/living/carbon/human/H = user
+		H.bioHolder.AddEffect("jumpy")
+	unequipped(var/mob/user, var/slot)
+		var/mob/living/carbon/human/H = user
+		H.bioHolder.RemoveEffect("jumpy")
