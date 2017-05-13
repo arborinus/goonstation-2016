@@ -84,7 +84,7 @@
 
 				// INDUSTRIAL GOODS LOOT TABLE
 				if (tier == 3)
-					items += /obj/item/device/voltron
+					items += /obj/item/pocket_locker
 					item_amounts += 1
 				else if (tier == 2)
 					picker = rand(1,1)
@@ -127,7 +127,7 @@
 
 				// MILITARY GOODS LOOT TABLE
 				if (tier == 3)
-					items += /obj/item/device/voltron
+					items += /obj/item/clothing/gloves/titanring
 					item_amounts += 1
 				else if (tier == 2)
 					picker = rand(1,10)
@@ -204,14 +204,20 @@
 
 				// CIVILIAN GOODS LOOT TABLE
 				if (tier == 3)
-					items += /obj/item/device/voltron
+					items += /obj/item/clothing/under/gimmick/frog
 					item_amounts += 1
 				else if (tier == 2)
-					picker = rand(1,1)
+					picker = rand(1,3)
 					switch(picker)
 						if(1)
 							items += /obj/item/reagent_containers/food/snacks/plant/tomato/explosive
 							item_amounts += 5
+						if(2)
+							items += /obj/item/clothing/ears/yetimuffs
+							item_amounts += 1
+						if(3)
+							items += /obj/item/zippo/brighter
+							item_amounts += 1
 				else
 					picker = rand(1,2)
 					switch(picker)
