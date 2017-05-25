@@ -132,6 +132,17 @@
 			item_amount = 10
 			max_item_amount = 10
 
+	heartcandy
+		name = "Cupid Dan's Candy Hearts"
+		desc = "May contain traces of real hearts, bone meal, and earwig honey."
+		icon_state = "heart_box"
+		contained_item = /obj/item/reagent_containers/food/snacks/candy/candyheart
+		item_amount = 10
+		max_item_amount = 10
+		icon_closed = "heart_box"
+		icon_open = "heart_box-open"
+		icon_empty = "heart_box-empty"
+
 	New()
 		..()
 		spawn(10)
