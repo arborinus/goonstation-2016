@@ -1264,8 +1264,8 @@
 				src.reagents.trans_to(newdog, 100)
 
 			if(src.herb)
-				newdog.name = replacetext(newdog.name, "corn","herb")
-				newdog.desc = replacetext(newdog.desc, "hotdog","sausage")
+				newdog.name = dd_replacetext(newdog.name, "corn","herb")
+				newdog.desc = dd_replacetext(newdog.desc, "hotdog","sausage")
 
 			qdel(src)
 
@@ -1785,26 +1785,3 @@ var/list/valid_jellybean_reagents = (typesof(/datum/reagent) - /datum/reagent)
 			for (var/i=5, i>0, i--)
 				reagents.add_reagent(pick(src.flavors), 1)
 		return
-
-
-
-/obj/item/reagent_containers/food/snacks/candy/candyheart
-	name = "candy heart"
-	desc = "Can you find the perfect phrase for that special someone?"
-	icon_state = "heart"
-	amount = 1
-	sugar_content = 5
-	var/phrase
-	var/list/heart_phrases = list("Be Mine", "XOXO", "Kiss Me", "Love", "U Rock", "I <3 U", "i wuv u", "U Leave Me Breathless", "UR my man", "Cutie Pie", "U-R-2 Cute",
-	 "Love Bug", "Hot Lips", "UR A STAR", "ME & U", "UR A QT", "Thank U", "Soul Mate", "Sol Mate", "Awesome", "Bee Mine", "Sweet as Honey", "True Love", "Ooh La La", "I GIB U WUV",
-	 "Change to Love Intent", "Robust Me", "Don't Robust my <3", "Love Transfer Valve", "You're Stunning", "Absorb my Heart", "Owl luv u forever", "We have Chemistry", "Be my Comdom",
-	 "Law 4: Rearrange the alphabet and put U and AI together")
-
-	New()
-		..()
-		src.icon_state = "heart-[rand(1,5)]"
-		phrase = pick(src.heart_phrases)
-		return
-
-	get_desc(dist)
-		. = "<br><span style='color: blue'>It says: [phrase]</span>"
