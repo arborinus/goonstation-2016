@@ -1181,3 +1181,53 @@ circuitry. As a result neurotoxins can cause massive damage.<BR>
 			H.implant.Add(my_implant)
 		else
 			my_implant.set_loc(get_turf(H))
+
+/* =============================================================== */
+/* ------------------------- Throwing Darts ---------------------- */
+/* =============================================================== */
+
+/obj/item/implant/projectile/bardart
+	name = "dart"
+	desc = "An object of d'art."
+	w_class = 1.0
+	icon = 'icons/obj/stationobjs.dmi'
+	icon_state = "dart"
+	throw_spin = 0
+
+	throw_impact(M)
+		..()
+		if (ishuman(M) && prob(5))
+			var/mob/living/carbon/human/H = M
+			H.implant.Add(src)
+			src.visible_message("<span style=\"color:red\">[src] gets embedded in [M]!</span>")
+			playsound(src.loc, "sound/weapons/slashcut.ogg", 100, 1)
+			random_brute_damage(M, 1)
+			src.set_loc(M)
+			src.implanted = 1
+
+	attack_hand(mob/user as mob)
+		src.pixel_x = 0
+		src.pixel_y = 0
+		..()
+
+/obj/item/implant/projectile/lawndart
+	name = "lawn dart"
+	desc = "An oversized plastic dart with a metal spike at the tip. Fun for the whole family!"
+	w_class = 1.0
+	icon = 'icons/obj/stationobjs.dmi'
+	icon_state = "lawndart"
+	throw_spin = 0
+	throw_speed = 3
+
+	throw_impact(M)
+		..()
+		if (ishuman(M))
+			var/mob/living/carbon/human/H = M
+			H.implant.Add(src)
+			src.visible_message("<span style=\"color:red\">[src] gets embedded in [M]!</span>")
+			playsound(src.loc, "sound/weapons/slashcut.ogg", 100, 1)
+			M:weakened += 20
+			random_brute_damage(M, 20)
+			take_bleeding_damage(M, null, 10, DAMAGE_CUT)
+			src.set_loc(M)
+			src.implanted = 1
