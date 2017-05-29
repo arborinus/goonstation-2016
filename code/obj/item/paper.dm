@@ -69,6 +69,17 @@
 	usr.show_text("You fold the paper into a hat! Neat.", "blue")
 	usr.put_in_hand_or_drop(new /obj/item/clothing/head/paper_hat ())
 
+/obj/item/paper/verb/make_plane()
+	set name = "Fold into plane"
+	set desc = "Years of space-age technology and people still make planes from paper."
+	set category = "Local"
+
+	set src in usr
+	var/obj/item/paper/P = src
+	src = null
+	qdel(P)
+	usr.show_text("You fold the paper into a plane! Neat.", "blue")
+	usr.put_in_hand_or_drop(new /obj/item/paper_plane ())
 
 /obj/item/paper/examine()
 	set src in view()
@@ -212,13 +223,13 @@
 		//t = copytext(sanitize(t),1,MAX_MESSAGE_LEN)
 		logTheThing("say", user, null, "writes on a piece of paper: [t]")
 		t = copytext(html_encode(t), 1, 2*MAX_MESSAGE_LEN)
-		t = dd_replacetext(t, "\n", "<BR>")
-		t = dd_replacetext(t, "\[b\]", "<B>")
-		t = dd_replacetext(t, "\[/b\]", "</B>")
-		t = dd_replacetext(t, "\[i\]", "<I>")
-		t = dd_replacetext(t, "\[/i\]", "</I>")
-		t = dd_replacetext(t, "\[u\]", "<U>")
-		t = dd_replacetext(t, "\[/u\]", "</U>")
+		t = replacetext(t, "\n", "<BR>")
+		t = replacetext(t, "\[b\]", "<B>")
+		t = replacetext(t, "\[/b\]", "</B>")
+		t = replacetext(t, "\[i\]", "<I>")
+		t = replacetext(t, "\[/i\]", "</I>")
+		t = replacetext(t, "\[u\]", "<U>")
+		t = replacetext(t, "\[/u\]", "</U>")
 
 		var/writing_style = "Dancing Script"
 		if (findtext(t, "\[sign\]") || findtext(t, "\[signature\]"))
@@ -226,8 +237,8 @@
 				writing_style = user.mind.handwriting
 			if (islist(src.fonts) && !src.fonts[writing_style])
 				src.fonts[writing_style] = 1
-		t = dd_replacetext(t, "\[sign\]", "<span style='font-family: [writing_style], cursive;'>[user.real_name]</span>")
-		t = dd_replacetext(t, "\[signature\]", "<span style='font-family: [writing_style], cursive;'>[user.real_name]</span>")
+		t = replacetext(t, "\[sign\]", "<span style='font-family: [writing_style], cursive;'>[user.real_name]</span>")
+		t = replacetext(t, "\[signature\]", "<span style='font-family: [writing_style], cursive;'>[user.real_name]</span>")
 
 		src.info += "<span style='font-family: [custom_font]; color: [custom_color]; font-size: [custom_size]px'> [t] </span>"
 
@@ -770,3 +781,20 @@ Only trained personnel should operate station systems. Follow all procedures car
 	..()
 	return
 WHO DID THIS */
+
+/obj/item/paper_plane
+	name = "paper plane"
+	desc = "If you throw it in space is it a paper spaceship?"
+	icon = 'icons/obj/writing.dmi'
+	icon_state = "paperplane"
+	burn_point = 220
+	burn_output = 900
+	burn_possible = 1
+	health = 10
+	throw_speed = 1
+	throw_spin = 0
+
+	hit_check()
+		if(src.throwing)
+			src.throw_unlimited = 1
+		return
