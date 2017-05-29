@@ -1,6 +1,7 @@
 /atom/var/throw_count = 0	  //Counts up for tiles traveled in throw mode. Only resets for mobs.
 /atom/var/throw_unlimited = 0 //Setting this to 1 before throwing will make the object behave as if in space.
 /atom/var/throw_return = 0    //When 1 item will return like a boomerang.
+/atom/var/throw_spin = 1      //If the icon spins while thrown
 /mob/var/gib_flag = 0 	      //Sorry about this.
 
 /atom/movable/proc/hit_check()
@@ -154,9 +155,10 @@
 	if(!istype(src)) return
 
 	var/matrix/transform_original = src.transform
-	animate(src, transform = matrix(transform_original, 120, MATRIX_ROTATE | MATRIX_MODIFY), time = 8/3, loop = -1)
-	animate(transform = matrix(transform_original, 120, MATRIX_ROTATE | MATRIX_MODIFY), time = 8/3, loop = -1)
-	animate(transform = matrix(transform_original, 120, MATRIX_ROTATE | MATRIX_MODIFY), time = 8/3, loop = -1)
+	if (src.throw_spin == 1)
+		animate(src, transform = matrix(transform_original, 120, MATRIX_ROTATE | MATRIX_MODIFY), time = 8/3, loop = -1)
+		animate(transform = matrix(transform_original, 120, MATRIX_ROTATE | MATRIX_MODIFY), time = 8/3, loop = -1)
+		animate(transform = matrix(transform_original, 120, MATRIX_ROTATE | MATRIX_MODIFY), time = 8/3, loop = -1)
 
 	var/dist_x = abs(target.x - src.x)
 	var/dist_y = abs(target.y - src.y)
