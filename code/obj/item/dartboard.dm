@@ -10,7 +10,7 @@
 	var/last_score = 0
 
 	HasEntered(atom/M)
-		if (istype(M, /obj/item/implant/projectile/bardart))
+		if (istype(M, /obj/item/implant/projectile/bardart) && M.dir == 1)
 			M.pixel_y += rand(22,38)
 			M.pixel_x += rand(-8,8)
 			last_score = rand(1,60)
