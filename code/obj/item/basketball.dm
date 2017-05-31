@@ -227,6 +227,7 @@
 	force = 10
 	throw_range = 10
 	throwforce = 2
+	throw_spin = 0
 
 /obj/item/bloodbowlball/attack_hand(mob/user as mob)
 	..()
@@ -297,6 +298,7 @@
 	force = 0
 	throw_range = 10
 	throwforce = 0
+	throw_spin = 0
 
 /obj/item/football/throw_at(atom/target, range, speed)
 	src.icon_state = "football_air"
