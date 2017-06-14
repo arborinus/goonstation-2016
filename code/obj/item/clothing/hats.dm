@@ -209,12 +209,14 @@
 /obj/item/clothing/head/that
 	name = "hat"
 	desc = "An stylish looking hat"
+	wear_image_icon = 'icons/mob/fruithat.dmi'
 	icon_state = "tophat"
 	item_state = "that"
 
 /obj/item/clothing/head/that/purple
 	name = "purple hat"
 	desc = "A purple tophat."
+	wear_image_icon = 'icons/mob/fruithat.dmi'
 	icon_state = "ptophat"
 	item_state = "pthat"
 	c_flags = SPACEWEAR
@@ -224,9 +226,17 @@
 
 /obj/item/clothing/head/chefhat
 	name = "Chef's hat"
-	icon_state = "chef"
 	item_state = "chef"
+	wear_image_icon = 'icons/mob/fruithat.dmi'
+	icon_state = "chef"
 	desc = "Your toque blanche, coloured as such so that your poor sanitation is obvious, and the blood shows up nice and crazy."
+	c_flags = SPACEWEAR
+
+/obj/item/clothing/head/dramachefhat
+	name = "Dramatic Chef's Hat"
+	wear_image_icon = 'icons/mob/fruithat.dmi'
+	icon_state = "drama"
+	item_state = "drama"
 	c_flags = SPACEWEAR
 
 /obj/item/clothing/head/souschefhat
@@ -252,6 +262,7 @@
 /obj/item/clothing/head/plunger
 	name = "plunger"
 	desc = "get dat fukken clog"
+	wear_image_icon = 'icons/mob/fruithat.dmi'
 	icon_state = "plunger"
 	item_state = "plunger"
 	armor_value_melee = 2
@@ -395,3 +406,10 @@
 	item_state = "lgloves"
 	see_face = 1
 	body_parts_covered = HEAD
+
+/obj/item/clothing/head/bigtex
+	name = "75-gallon hat"
+	desc = "A recreation of the late Big Tex's hat, commisioned by Ol' Harner."
+	wear_image_icon = 'icons/mob/fruithat.dmi'
+	icon_state = "bigtex"
+	item_state = "bigtex"
