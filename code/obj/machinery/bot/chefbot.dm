@@ -193,8 +193,10 @@
 	src.on = 0
 	for(var/mob/O in hearers(src, null))
 		O.show_message("<span style=\"color:red\"><B>[src] blows apart!</B></span>", 1)
+	var/turf/Tsec = get_turf(src)
 	var/datum/effects/system/spark_spread/s = unpool(/datum/effects/system/spark_spread)
 	s.set_up(3, 1, src)
 	s.start()
+	new /obj/item/clothing/head/dramachefhat(Tsec)
 	qdel(src)
 	return
